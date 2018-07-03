@@ -82,12 +82,15 @@ export default {
       this.$toast(`当前值：${value}, 当前索引：${index}`);
     },
     onClickMiniBtn() {
-      Toast('点击图标');
+      // Toast('点击图标');
     },
     onClickBigBtn() {
-      Toast('点击按钮');
+      // Toast('点击按钮');
     }
-  }
+  },
+  // mounted () {
+  //   document.addEventListener('touchstart', function () {}, false) // 消除ios:activeBUG
+  // }
 }
 </script>
 

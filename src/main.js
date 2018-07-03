@@ -8,9 +8,6 @@ import Vant from 'vant'
 import 'vant/lib/vant-css/index.css'
 Vue.use(Vant)
 
-// import Mint from 'mint-ui';
-// Vue.use(Mint);
-
 import 'lib-flexible/flexible.js'
 Vue.config.productionTip = false
 
@@ -22,10 +19,4 @@ new Vue({
   template: '<App/>'
 })
 
-// window.onresize = setHtmlFontSize;
-// function setHtmlFontSize(){
-//     const htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
-//     const htmlDom = document.getElementsByTagName('html')[0];
-//     htmlDom.style.fontSize = htmlWidth / 10 + 'px';
-// };
-// setHtmlFontSize();
+document.addEventListener('touchstart', function () {}, false)
