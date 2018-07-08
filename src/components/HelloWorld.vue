@@ -1,42 +1,114 @@
 <template>
-  <div class="hello">
+  <div class="main">
     <van-nav-bar
       title="标题"
       left-text="返回"
       right-text="按钮"
       left-arrow
+      fixed="true"
       @click-left="onClickLeft"
       @click-right="onClickRight"
+      class="header"
     />
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="primary">主要按钮</van-button>
-    <van-button type="danger">危险按钮</van-button>
-    <!-- <van-address-list
-      v-model="chosenAddressId"
-      :list="list"
-      @add="onAdd"
-      @edit="onEdit"
-    />
-    <van-cell-group> -->
-      <van-field
-        v-model="username"
-        required
-        clearable
-        label="用户名"
-        icon="question"
-        placeholder="请输入用户名"
-        @click-icon="$toast('question')"
+    <section>
+      <van-button type="default">默认按钮</van-button>
+      <van-button type="primary">主要按钮</van-button>
+      <van-button type="danger">危险按钮</van-button>
+      <!-- <van-address-list
+        v-model="chosenAddressId"
+        :list="list"
+        @add="onAdd"
+        @edit="onEdit"
       />
+      <van-cell-group> -->
+        <van-field
+          v-model="username"
+          required
+          clearable
+          label="用户名"
+          icon="question"
+          placeholder="请输入用户名"
+          @click-icon="$toast('question')"
+        />
+        <van-field
+          v-model="username"
+          required
+          clearable
+          label="用户名"
+          icon="question"
+          placeholder="请输入用户名"
+          @click-icon="$toast('question')"
+        />      <van-field
+          v-model="username"
+          required
+          clearable
+          label="用户名"
+          icon="question"
+          placeholder="请输入用户名"
+          @click-icon="$toast('question')"
+        />      <van-field
+          v-model="username"
+          required
+          clearable
+          label="用户名"
+          icon="question"
+          placeholder="请输入用户名"
+          @click-icon="$toast('question')"
+        />
+        <van-field
+          v-model="password"
+          type="password"
+          label="密码"
+          placeholder="请输入密码"
+          required
+        />      <van-field
+          v-model="password"
+          type="password"
+          label="密码"
+          placeholder="请输入密码"
+          required
+        />      <van-field
+          v-model="password"
+          type="password"
+          label="密码"
+          placeholder="请输入密码"
+          required
+        />      <van-field
+          v-model="password"
+          type="password"
+          label="密码"
+          placeholder="请输入密码"
+          required
+        />      <van-field
+          v-model="password"
+          type="password"
+          label="密码"
+          placeholder="请输入密码"
+          required
+        />      <van-field
+          v-model="password"
+          type="password"
+          label="密码"
+          placeholder="请输入密码"
+          required
+        />      <van-field
+          v-model="password"
+          type="password"
+          label="密码"
+          placeholder="请输入密码"
+          required
+        />
+        <van-field
+          v-model="password"
+          type="password"
+          label="密码"
+          placeholder="请输入密码"
+          required
+        />
+      </van-cell-group>
+      <van-picker :columns="columns" @change="onChange" />
+    </section>
 
-      <van-field
-        v-model="password"
-        type="password"
-        label="密码"
-        placeholder="请输入密码"
-        required
-      />
-    </van-cell-group>
-    <van-picker :columns="columns" @change="onChange" />
 
     <van-goods-action>
       <van-goods-action-mini-btn icon="chat" text="客服" @click="onClickMiniBtn" />
@@ -96,5 +168,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+body{
+  height: 100%;
+}
+.main{
+  display: flex;
+  flex-direction: column;
 
+}
+.header{
+
+}
+section{
+  /* flex: 1; */
+  height: 400px;
+  overflow-y: scroll;
+}
 </style>
