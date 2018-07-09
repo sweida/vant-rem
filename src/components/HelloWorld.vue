@@ -3,11 +3,7 @@
     <van-nav-bar
       title="标题"
       left-text="返回"
-      right-text="按钮"
       left-arrow
-      fixed="true"
-      @click-left="onClickLeft"
-      @click-right="onClickRight"
       class="header"
     />
     <section>
@@ -22,7 +18,7 @@
       />
       <van-cell-group> -->
         <van-field
-          v-model="username"
+          v-model="form.username"
           required
           clearable
           label="用户名"
@@ -31,91 +27,24 @@
           @click-icon="$toast('question')"
         />
         <van-field
-          v-model="username"
-          required
-          clearable
-          label="用户名"
-          icon="question"
-          placeholder="请输入用户名"
-          @click-icon="$toast('question')"
-        />      <van-field
-          v-model="username"
-          required
-          clearable
-          label="用户名"
-          icon="question"
-          placeholder="请输入用户名"
-          @click-icon="$toast('question')"
-        />      <van-field
-          v-model="username"
-          required
-          clearable
-          label="用户名"
-          icon="question"
-          placeholder="请输入用户名"
-          @click-icon="$toast('question')"
-        />
-        <van-field
-          v-model="password"
-          type="password"
-          label="密码"
-          placeholder="请输入密码"
-          required
-        />      <van-field
-          v-model="password"
-          type="password"
-          label="密码"
-          placeholder="请输入密码"
-          required
-        />      <van-field
-          v-model="password"
-          type="password"
-          label="密码"
-          placeholder="请输入密码"
-          required
-        />      <van-field
-          v-model="password"
-          type="password"
-          label="密码"
-          placeholder="请输入密码"
-          required
-        />      <van-field
-          v-model="password"
-          type="password"
-          label="密码"
-          placeholder="请输入密码"
-          required
-        />      <van-field
-          v-model="password"
-          type="password"
-          label="密码"
-          placeholder="请输入密码"
-          required
-        />      <van-field
-          v-model="password"
-          type="password"
+          v-model="form.password"
           label="密码"
           placeholder="请输入密码"
           required
         />
-        <van-field
-          v-model="password"
-          type="password"
-          label="密码"
-          placeholder="请输入密码"
-          required
-        />
+
       </van-cell-group>
-      <van-picker :columns="columns" @change="onChange" />
+      <van-button type="primary" size="large" @click.native="gonext">默认按钮</van-button>
+      <!-- <van-picker :columns="columns" @change="onChange" /> -->
     </section>
 
 
-    <van-goods-action>
+    <!-- <van-goods-action>
       <van-goods-action-mini-btn icon="chat" text="客服" @click="onClickMiniBtn" />
       <van-goods-action-mini-btn icon="cart" text="购物车" @click="onClickMiniBtn" />
       <van-goods-action-big-btn text="加入购物车" @click="onClickBigBtn" />
       <van-goods-action-big-btn text="立即购买" @click="onClickBigBtn" primary />
-    </van-goods-action>
+    </van-goods-action> -->
   </div>
 </template>
 
@@ -124,6 +53,11 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      form: {
+        username: '',
+        password: ''
+      },
+      // form2: JSON.parse(sessionStorage.getItem("form")),
       msg: 'Welcome to Your Vue.js App',
       chosenAddressId: '1',
       columns: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
@@ -143,6 +77,15 @@ export default {
       ]
     }
   },
+  created() {
+    console.log(JSON.parse(sessionStorage.getItem("form")),11);
+    console.log(sessionStorage.getItem("form"),22);
+    console.log(JSON.parse(sessionStorage.getItem("form2")),33);
+    console.log(sessionStorage.getItem("form2"),44);
+    if(sessionStorage.getItem("form")) {
+      this.form = JSON.parse(sessionStorage.getItem("form"))
+    }
+  },
   methods: {
     // onAdd() {
     //   Toast('新增收货地址');
@@ -152,6 +95,11 @@ export default {
     // },
     onChange(picker, value, index) {
       this.$toast(`当前值：${value}, 当前索引：${index}`);
+    },
+    gonext() {
+      sessionStorage.setItem('form', JSON.stringify(this.form))
+      sessionStorage.setItem('form2', this.form)
+      this.$router.push({path:'form'})
     },
     onClickMiniBtn() {
       // Toast('点击图标');

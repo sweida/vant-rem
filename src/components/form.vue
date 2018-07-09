@@ -6,37 +6,10 @@
       right-text="按钮"
       left-arrow
       @click-left="onClickLeft"
-      @click-right="onClickRight"
     />
     <van-button type="default">默认按钮</van-button>
     <van-button type="primary">主要按钮</van-button>
     <van-button type="danger">危险按钮</van-button>
-    <!-- <van-address-list
-      v-model="chosenAddressId"
-      :list="list"
-      @add="onAdd"
-      @edit="onEdit"
-    />
-    <van-cell-group> -->
-      <van-field
-        v-model="username"
-        required
-        clearable
-        label="用户名"
-        icon="question"
-        placeholder="请输入用户名"
-        @click-icon="$toast('question')"
-      />
-
-      <van-field
-        v-model="password"
-        type="password"
-        label="密码"
-        placeholder="请输入密码"
-        required
-      />
-    </van-cell-group>
-    <van-picker :columns="columns" @change="onChange" />
 
     <van-goods-action>
       <van-goods-action-mini-btn icon="chat" text="客服" @click="onClickMiniBtn" />
@@ -78,14 +51,17 @@ export default {
     // onEdit(item, index) {
     //   Toast('编辑收货地址:' + index);
     // },
+    onClickLeft() {
+      this.$router.go(-1)
+    },
     onChange(picker, value, index) {
       this.$toast(`当前值：${value}, 当前索引：${index}`);
     },
     onClickMiniBtn() {
-      Toast('点击图标');
+      // Toast('点击图标');
     },
     onClickBigBtn() {
-      Toast('点击按钮');
+      // Toast('点击按钮');
     }
   }
 }
