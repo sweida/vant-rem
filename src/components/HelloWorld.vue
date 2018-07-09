@@ -80,8 +80,6 @@ export default {
   created() {
     console.log(JSON.parse(sessionStorage.getItem("form")),11);
     console.log(sessionStorage.getItem("form"),22);
-    console.log(JSON.parse(sessionStorage.getItem("form2")),33);
-    console.log(sessionStorage.getItem("form2"),44);
     if(sessionStorage.getItem("form")) {
       this.form = JSON.parse(sessionStorage.getItem("form"))
     }
@@ -98,7 +96,6 @@ export default {
     },
     gonext() {
       sessionStorage.setItem('form', JSON.stringify(this.form))
-      sessionStorage.setItem('form2', this.form)
       this.$router.push({path:'form'})
     },
     onClickMiniBtn() {
