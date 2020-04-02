@@ -15,8 +15,8 @@
         :list="list"
         @add="onAdd"
         @edit="onEdit"
-      />
-      <van-cell-group> -->
+      />-->
+      <van-cell-group> 
         <van-field
           v-model="form.username"
           required
@@ -37,6 +37,9 @@
       <van-button type="primary" size="large" @click.native="gonext">默认按钮</van-button>
       <!-- <van-picker :columns="columns" @change="onChange" /> -->
     </section>
+    <div class="text">
+      这是一行字
+    </div>
 
 
     <!-- <van-goods-action>
@@ -128,5 +131,9 @@ section{
   /* flex: 1; */
   height: 400px;
   overflow-y: scroll;
+}
+
+.text{
+  font-size: .36rem
 }
 </style>
